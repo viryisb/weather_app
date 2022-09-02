@@ -12,11 +12,12 @@ body {
 
 .card {
   max-width: 60%;
+  max-height: 100%;
 }
+/* .background-image {
+  min-height: 100%;
+} */
 
-.card {
-  max-width: 60%;
-}
 .card-title {
   position: absolute;
   padding: 20px;
@@ -31,16 +32,15 @@ body {
 .card-temp {
   position: absolute;
   padding-left: 20px;
-  margin-top: 160px;
+  margin-top: 260px;
   font-size: 50px;
 }
 
 .card-desc {
   position: absolute;
   padding-left: 20px;
-  margin-top: 250px;
+  margin-top: 320px;
 }
-
 .extra-large-font-size {
   font-size: 2.5em;
   font-weight: bold;
@@ -58,6 +58,3 @@ body {
   font-size: 1.12em;
   font-weight: bold;
 }
-/* .h6 {
-  font-size: 0.75em;
-} */

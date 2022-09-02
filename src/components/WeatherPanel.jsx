@@ -25,7 +25,7 @@ const WeatherPanel = () => {
 
     await fetch(urlWeather)
       .then((response) => {
-        if (!response.ok) throw { response };
+        if (!response) throw new Error('Status: ' + 404);
         return response.json();
       })
       .then((weatherData) => {
@@ -42,7 +42,7 @@ const WeatherPanel = () => {
     urlForecast = urlForecast + cityUrl + loc;
     await fetch(urlForecast)
       .then((response) => {
-        if (!response.ok) throw { response };
+        if (!response) throw new Error('Status: ' + 404);
         return response.json();
       })
       .then((forecastData) => {

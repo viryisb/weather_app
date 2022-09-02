@@ -14,6 +14,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
   let iconUrl24Hours = '';
   let iconUrl48Hours = '';
   let iconUrl72Hours = '';
+
   let forecastDate24Hours = '';
   let forecastDate48Hours = '';
   let forecastDate72Hours = '';
@@ -23,32 +24,30 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
   }
 
   if (showData) {
-    url = 'https://openweathermap.org/img/w/';
-    iconUrl = `${url}${weather.weather[0].icon}.png`;
+    url = 'http://openweathermap.org/img/w/';
+    iconUrl = url + weather.weather[0].icon + '.png';
 
     iconUrl24Hours = url + forecast.list[6].weather[0].icon + '.png';
     iconUrl48Hours = url + forecast.list[14].weather[0].icon + '.png';
     iconUrl72Hours = url + forecast.list[22].weather[0].icon + '.png';
 
-    forecastDate24Hours =
-      forecast.list[6].dt_txt.substring(8, 10) +
-      '/' +
-      forecast.list[6].dt_txt.substring(5, 7) +
-      '/' +
-      forecast.list[6].dt_txt.substring(0, 4);
-    forecastDate48Hours =
-      forecast.list[14].dt_txt.substring(8, 10) +
-      '/' +
-      forecast.list[14].dt_txt.substring(5, 7) +
-      '/' +
-      forecast.list[14].dt_txt.substring(0, 4);
-    forecastDate72Hours =
-      forecast.list[22].dt_txt.substring(8, 10) +
-      '/' +
-      forecast.list[22].dt_txt.substring(5, 7) +
-      '/' +
-      forecast.list[22].dt_txt.substring(0, 4);
+    forecastDate24Hours = `${forecast.list[6].dt_txt.substring(8, 10)}
+     /
+     ${forecast.list[6].dt_txt.substring(5, 7)}
+     /
+     ${forecast.list[6].dt_txt.substring(0, 4)}`;
+    forecastDate48Hours = `${forecast.list[14].dt_txt.substring(8, 10)}
+     /
+     ${forecast.list[14].dt_txt.substring(5, 7)}
+     /
+     ${forecast.list[14].dt_txt.substring(0, 4)}`;
+    forecastDate72Hours = `${forecast.list[22].dt_txt.substring(8, 10)}
+    /
+    ${forecast.list[22].dt_txt.substring(5, 7)}
+    /
+    ${forecast.list[22].dt_txt.substring(0, 4)}`;
   }
+
   return (
     <div className='mt-5'>
       {showData ? (
@@ -56,65 +55,63 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
           <div className='card mb-3 mx-auto bg-dark text-light'>
             <div className='row g-0'>
               <div className='col-md-4'>
-                <p className='card-title large-font-size'>{weather.name}</p>
+                <h2 className='card-title large-font-size'>{weather.name}</h2>
                 <p className='card-date'>{date}</p>
-                <p className='card-temp extra-large-font-size'>
-                  {(weather.main.temp - 273.15).toFixed(0)}ºC
+                <p className='card-temp large-font-size'>
+                  {(weather.main.temp - 273.15).toFixed(1)}ºC
                 </p>
                 <p className='card-desc'>
                   <img src={iconUrl} alt='icon' />
                   {weather.weather[0].description}
                 </p>
-
-                <img
-                  src='https://images.pexels.com/photos/10817264/pexels-photo-10817264.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=126'
-                  className='img-fluid rounded-start'
+                {/* <img
+                  src='hhttps://images.pexels.com/photos/705425/pexels-photo-705425.jpeg?auto=compress&cs=tinysrgb&w=600'
+                  className='img-fluid rounded-start background-image'
                   alt=''
-                />
+                /> */}
               </div>
               <div className='col-md-8'>
                 <div className='card-body text-start mt-2'>
                   <p className='card-text small-font-size'>
-                    Maximum temperature{' '}
-                    {(weather.main.temp_max - 273.15).toFixed(0)}ºC
+                    Maximum temperature:{' '}
+                    {(weather.main.temp_max - 273.15).toFixed(1)}ºC
                   </p>
                   <p className='card-text small-font-size'>
-                    Minimum temperature{' '}
-                    {(weather.main.temp_min - 273.15).toFixed(0)}ºC
+                    Minimum temperature:{' '}
+                    {(weather.main.temp_min - 273.15).toFixed(1)}ºC
                   </p>
+
                   <p className='card-text small-font-size'>
-                    Humidity {weather.main.humidity}%
+                    Humidity: {weather.main.humidity}%
                   </p>
                 </div>
                 <hr />
 
-                <div className='row-mt-4'>
+                <div className='row mt-4'>
                   <div className='col'>
                     <p>{forecastDate24Hours}</p>
+                    <img src={iconUrl24Hours} alt='icon' />
                     <p className='description'>
-                      <img src={iconUrl24Hours} alt='icon' />
                       {forecast.list[6].weather[0].description}
                     </p>
                     <p className='temp'>
                       {(forecast.list[6].main.temp - 273.15).toFixed(1)}ºC
                     </p>
                   </div>
-
                   <div className='col'>
                     <p>{forecastDate48Hours}</p>
+                    <img src={iconUrl48Hours} alt='icon' />
                     <p className='description'>
-                      <img src={iconUrl48Hours} alt='icon' />
                       {forecast.list[14].weather[0].description}
                     </p>
                     <p className='temp'>
                       {(forecast.list[14].main.temp - 273.15).toFixed(1)}ºC
                     </p>
                   </div>
-
                   <div className='col'>
                     <p>{forecastDate72Hours}</p>
+                    <img src={iconUrl72Hours} alt='icon' />
                     <p className='description'>
-                      <img src={iconUrl72Hours} alt='icon' />
                       {forecast.list[22].weather[0].description}
                     </p>
                     <p className='temp'>
@@ -127,9 +124,12 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
           </div>
         </div>
       ) : (
-        <p className='text-light large-font-size'>No data</p>
+        <p className='text-light medium-font-size'>
+          Please introduce a valid city
+        </p>
       )}
     </div>
   );
 };
+
 export default Card;
