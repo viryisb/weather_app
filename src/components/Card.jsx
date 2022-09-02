@@ -11,6 +11,13 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
   let url = '';
   let iconUrl = '';
 
+  let iconUrl24Hours = '';
+  let iconUrl48Hours = '';
+  let iconUrl72Hours = '';
+  let forecastDate24Hours = '';
+  let forecastDate48Hours = '';
+  let forecastDate72Hours = '';
+
   if (loadingData) {
     return <Spinner />;
   }
@@ -18,6 +25,29 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
   if (showData) {
     url = 'https://openweathermap.org/img/w/';
     iconUrl = `${url}${weather.weather[0].icon}.png`;
+
+    iconUrl24Hours = url + forecast.list[6].weather[0].icon + '.png';
+    iconUrl48Hours = url + forecast.list[14].weather[0].icon + '.png';
+    iconUrl72Hours = url + forecast.list[22].weather[0].icon + '.png';
+
+    forecastDate24Hours =
+      forecast.list[6].dt_txt.substring(8, 10) +
+      '/' +
+      forecast.list[6].dt_txt.substring(5, 7) +
+      '/' +
+      forecast.list[6].dt_txt.substring(0, 4);
+    forecastDate48Hours =
+      forecast.list[14].dt_txt.substring(8, 10) +
+      '/' +
+      forecast.list[14].dt_txt.substring(5, 7) +
+      '/' +
+      forecast.list[14].dt_txt.substring(0, 4);
+    forecastDate72Hours =
+      forecast.list[22].dt_txt.substring(8, 10) +
+      '/' +
+      forecast.list[22].dt_txt.substring(5, 7) +
+      '/' +
+      forecast.list[22].dt_txt.substring(0, 4);
   }
   return (
     <div className='mt-5'>
@@ -57,6 +87,41 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                   </p>
                 </div>
                 <hr />
+
+                <div className='row-mt-4'>
+                  <div className='col'>
+                    <p>{forecastDate24Hours}</p>
+                    <p className='description'>
+                      <img src={iconUrl24Hours} alt='icon' />
+                      {forecast.list[6].weather[0].description}
+                    </p>
+                    <p className='temp'>
+                      {(forecast.list[6].main.temp - 273.15).toFixed(1)}ºC
+                    </p>
+                  </div>
+
+                  <div className='col'>
+                    <p>{forecastDate48Hours}</p>
+                    <p className='description'>
+                      <img src={iconUrl48Hours} alt='icon' />
+                      {forecast.list[14].weather[0].description}
+                    </p>
+                    <p className='temp'>
+                      {(forecast.list[14].main.temp - 273.15).toFixed(1)}ºC
+                    </p>
+                  </div>
+
+                  <div className='col'>
+                    <p>{forecastDate72Hours}</p>
+                    <p className='description'>
+                      <img src={iconUrl72Hours} alt='icon' />
+                      {forecast.list[22].weather[0].description}
+                    </p>
+                    <p className='temp'>
+                      {(forecast.list[22].main.temp - 273.15).toFixed(1)}ºC
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
