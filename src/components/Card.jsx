@@ -26,11 +26,11 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
           <div className='card mb-3 mx-auto bg-dark text-light'>
             <div className='row g-0'>
               <div className='col-md-4'>
-                <h3 className='card-title'>{weather.name}</h3>
+                <p className='card-title large-font-size'>{weather.name}</p>
                 <p className='card-date'>{date}</p>
-                <h1 className='card-temp'>
+                <p className='card-temp extra-large-font-size'>
                   {(weather.main.temp - 273.15).toFixed(0)}ºC
-                </h1>
+                </p>
                 <p className='card-desc'>
                   <img src={iconUrl} alt='icon' />
                   {weather.weather[0].description}
@@ -44,17 +44,17 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
               </div>
               <div className='col-md-8'>
                 <div className='card-body text-start mt-2'>
-                  <h5 className='card-text'>
+                  <p className='card-text small-font-size'>
                     Maximum temperature{' '}
                     {(weather.main.temp_max - 273.15).toFixed(0)}ºC
-                  </h5>
-                  <h5 className='card-text'>
+                  </p>
+                  <p className='card-text small-font-size'>
                     Minimum temperature{' '}
                     {(weather.main.temp_min - 273.15).toFixed(0)}ºC
-                  </h5>
-                  <h5 className='card-text'>
+                  </p>
+                  <p className='card-text small-font-size'>
                     Humidity {weather.main.humidity}%
-                  </h5>
+                  </p>
                 </div>
                 <hr />
               </div>
@@ -62,7 +62,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
           </div>
         </div>
       ) : (
-        <h2 className='text-light'>No data</h2>
+        <p className='text-light large-font-size'>No data</p>
       )}
     </div>
   );

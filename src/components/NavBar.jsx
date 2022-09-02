@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 const NavBar = () => {
   return (
     <nav className='navbar bg-dark text-light mb-5'>
       <div className='container-fluid'>
-        <h3 className='mx-auto'>Weather forecast</h3>
+        <h1 className='mx-auto large-font-size'>Weather forecast</h1>
       </div>
     </nav>
   );
