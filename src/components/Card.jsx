@@ -57,9 +57,9 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
           <div className='card mb-3 mx-auto  text-light'>
             <div className='row g-0'>
               <div className='col-md-4'>
-                <p className='card-title large-font-size'>{weather.name}</p>
+                <p className='card-title '>{weather.name}</p>
                 <p className='card-date'>{date}</p>
-                <p className='card-temp large-font-size'>
+                <p className='card-temp '>
                   {(weather.main.temp - 273.15).toFixed(1)}ºC
                 </p>
                 <p className='card-desc'>
@@ -69,16 +69,16 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
               </div>
               <div className='col-md-8'>
                 <div className='card-body text-start mt-2'>
-                  <p className='card-text small-font-size'>
+                  <p className='card-text'>
                     Maximum temperature:{' '}
                     {(weather.main.temp_max - 273.15).toFixed(1)}ºC
                   </p>
-                  <p className='card-text small-font-size'>
+                  <p className='card-text'>
                     Minimum temperature:{' '}
                     {(weather.main.temp_min - 273.15).toFixed(1)}ºC
                   </p>
 
-                  <p className='card-text small-font-size'>
+                  <p className='card-text'>
                     Humidity: {weather.main.humidity}%
                   </p>
                 </div>
@@ -121,7 +121,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
           </div>
         </div>
       ) : (
-        <p className='text-light medium-font-size enter-city-messagge'>
+        <p className='text-light enter-city-messagge'>
           Please enter a city to search.
         </p>
       )}
