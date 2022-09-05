@@ -1,11 +1,11 @@
 import React from 'react';
-import '../assets/css/spinner.css';
 
 const Spinner = () => {
   return (
-    <div className='lds-ripple'>
-      <div></div>
-      <div></div>
+    <div class='d-flex justify-content-center'>
+      <div class='spinner-border' role='status'>
+        <span class='sr-only'>Loading...</span>
+      </div>
     </div>
   );
 };

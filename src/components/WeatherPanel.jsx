@@ -3,18 +3,17 @@ import Form from './Form';
 import Card from './Card';
 
 const WeatherPanel = () => {
-  let urlWeather =
-    'https://api.openweathermap.org/data/2.5/weather?&appid=d8f3254c8acb5ed0dd761401c734945e';
+  const apiKey = 'd8f3254c8acb5ed0dd761401c734945e';
+  let urlWeather = `https://api.openweathermap.org/data/2.5/weather?&appid=${apiKey}`;
   let cityUrl = '&q=';
 
-  let urlForecast =
-    'https://api.openweathermap.org/data/2.5/forecast?&appid=d8f3254c8acb5ed0dd761401c734945e';
+  let urlForecast = `https://api.openweathermap.org/data/2.5/forecast?&appid=${apiKey}`;
 
   const [weather, setWeather] = useState([]);
   const [forecast, setForecast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
-  const [location, setLocation] = useState('');
+  const [, setLocation] = useState('');
 
   const getLocation = async (loc) => {
     setLoading(true);
@@ -25,7 +24,7 @@ const WeatherPanel = () => {
 
     await fetch(urlWeather)
       .then((response) => {
-        if (!response) throw new Error('Status: ' + 404);
+        if (!response.ok) throw new Error('Status: ' + 404);
         return response.json();
       })
       .then((weatherData) => {
@@ -42,7 +41,7 @@ const WeatherPanel = () => {
     urlForecast = urlForecast + cityUrl + loc;
     await fetch(urlForecast)
       .then((response) => {
-        if (!response) throw new Error('Status: ' + 404);
+        if (!response.ok) throw new Error('Status: ' + 404);
         return response.json();
       })
       .then((forecastData) => {

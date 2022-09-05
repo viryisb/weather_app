@@ -36,11 +36,13 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
      ${forecast.list[6].dt_txt.substring(5, 7)}
      /
      ${forecast.list[6].dt_txt.substring(0, 4)}`;
+
     forecastDate48Hours = `${forecast.list[14].dt_txt.substring(8, 10)}
      /
      ${forecast.list[14].dt_txt.substring(5, 7)}
      /
      ${forecast.list[14].dt_txt.substring(0, 4)}`;
+
     forecastDate72Hours = `${forecast.list[22].dt_txt.substring(8, 10)}
     /
     ${forecast.list[22].dt_txt.substring(5, 7)}
@@ -52,10 +54,10 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
     <div className='mt-5'>
       {showData ? (
         <div className='container'>
-          <div className='card mb-3 mx-auto bg-dark text-light'>
+          <div className='card mb-3 mx-auto  text-light'>
             <div className='row g-0'>
               <div className='col-md-4'>
-                <h2 className='card-title large-font-size'>{weather.name}</h2>
+                <p className='card-title large-font-size'>{weather.name}</p>
                 <p className='card-date'>{date}</p>
                 <p className='card-temp large-font-size'>
                   {(weather.main.temp - 273.15).toFixed(1)}ºC
@@ -64,11 +66,6 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                   <img src={iconUrl} alt='icon' />
                   {weather.weather[0].description}
                 </p>
-                {/* <img
-                  src='hhttps://images.pexels.com/photos/705425/pexels-photo-705425.jpeg?auto=compress&cs=tinysrgb&w=600'
-                  className='img-fluid rounded-start background-image'
-                  alt=''
-                /> */}
               </div>
               <div className='col-md-8'>
                 <div className='card-body text-start mt-2'>
@@ -90,7 +87,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                 <div className='row mt-4'>
                   <div className='col'>
                     <p>{forecastDate24Hours}</p>
-                    <img src={iconUrl24Hours} alt='icon' />
+                    <img src={iconUrl24Hours} alt='' />
                     <p className='description'>
                       {forecast.list[6].weather[0].description}
                     </p>
@@ -100,7 +97,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                   </div>
                   <div className='col'>
                     <p>{forecastDate48Hours}</p>
-                    <img src={iconUrl48Hours} alt='icon' />
+                    <img src={iconUrl48Hours} alt='' />
                     <p className='description'>
                       {forecast.list[14].weather[0].description}
                     </p>
@@ -110,7 +107,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                   </div>
                   <div className='col'>
                     <p>{forecastDate72Hours}</p>
-                    <img src={iconUrl72Hours} alt='icon' />
+                    <img src={iconUrl72Hours} alt='' />
                     <p className='description'>
                       {forecast.list[22].weather[0].description}
                     </p>
@@ -124,8 +121,8 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
           </div>
         </div>
       ) : (
-        <p className='text-light medium-font-size'>
-          Please introduce a valid city
+        <p className='text-light medium-font-size enter-city-messagge'>
+          Please enter a city to search.
         </p>
       )}
     </div>

@@ -1,5 +1,8 @@
+html {
+  font-family: 'Poppins', sans-serif;
+}
 body {
-  background-color: #2f3544;
+  background-color: #070d2fe3;
 }
 
 .App {
@@ -7,39 +10,61 @@ body {
 }
 
 .input-group {
+  margin-top: 10%;
   width: 60%;
+}
+.form-control:focus {
+  border-color: #030a1d;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.075) inset,
+    0px 0px 10px rgba(237, 233, 245, 0.864);
+}
+.enter-city-messagge {
+  text-align: center;
+  text-shadow: 1px 2px rgba(15, 15, 22, 0.5);
 }
 
 .card {
   max-width: 60%;
   max-height: 100%;
+  background-color: #04298d7e;
 }
-/* .background-image {
-  min-height: 100%;
-} */
 
 .card-title {
   position: absolute;
   padding: 20px;
+  text-align: center;
+  font-weight: 900;
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
 }
 
 .card-date {
   position: absolute;
   padding-left: 20px;
-  margin-top: 60px;
+  margin-top: 65px;
+  text-align: center;
 }
 
 .card-temp {
   position: absolute;
-  padding-left: 20px;
-  margin-top: 260px;
+  margin-left: 25px;
+  margin-top: 150px;
   font-size: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 15px 25px;
+  color: #fff;
+  font-size: 102px;
+  font-weight: 900;
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+  text-align: center;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .card-desc {
   position: absolute;
   padding-left: 20px;
-  margin-top: 320px;
+  margin-top: 250px;
+  text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
 }
 .extra-large-font-size {
   font-size: 2.5em;
