@@ -14,7 +14,7 @@ const Form = ({ newLocation }) => {
         <div className='input-group mb-3 mx-auto'>
           <input
             value={city}
-            type='text'
+            type='search'
             className='form-control'
             placeholder='Search a city'
             onChange={(e) => setCity(e.target.value)}

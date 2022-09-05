@@ -54,7 +54,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
     <div className='mt-5'>
       {showData ? (
         <div className='container'>
-          <div className='card mb-3 mx-auto  text-light'>
+          <main className='card mb-3 mx-auto  text-light'>
             <div className='row g-0'>
               <div className='col-md-4'>
                 <p className='card-title '>{weather.name}</p>
@@ -118,7 +118,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </main>
         </div>
       ) : (
         <p className='text-light enter-city-messagge'>
