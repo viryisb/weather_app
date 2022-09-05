@@ -29,7 +29,7 @@ const WeatherPanel = () => {
       .then((weatherData) => {
         setWeather(weatherData);
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(false);
         setShow(false);
       });
@@ -46,7 +46,7 @@ const WeatherPanel = () => {
         setLoading(false);
         setShow(true);
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(false);
         setShow(false);
       });
