@@ -1,7 +1,13 @@
-import "./assets/css/App.css";
+import './assets/css/App.css';
+
+import WeatherPanel from './components/WeatherPanel';
 
 function App() {
-  return <div className='App'></div>;
+  return (
+    <div>
+      <WeatherPanel />
+    </div>
+  );
 }
 
 export default App;
