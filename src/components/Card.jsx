@@ -63,7 +63,7 @@ const Card = ({ loadingData, showData, weather, forecast }) => {
                   {(weather.main.temp - 273.15).toFixed(1)}ºC
                 </p>
                 <p className='card-desc'>
-                  <img src={iconUrl} alt='icon' />
+                  <img src={iconUrl} alt='' />
                   {weather.weather[0].description}
                 </p>
               </div>
