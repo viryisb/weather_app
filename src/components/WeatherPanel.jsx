@@ -19,7 +19,6 @@ const WeatherPanel = () => {
     setLoading(true);
     setLocation(loc);
 
-    //weather
     urlWeather = urlWeather + cityUrl + loc;
 
     await fetch(urlWeather)
@@ -28,16 +27,13 @@ const WeatherPanel = () => {
         return response.json();
       })
       .then((weatherData) => {
-        console.log(weatherData);
         setWeather(weatherData);
       })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
         setShow(false);
       });
 
-    //Forecast
     urlForecast = urlForecast + cityUrl + loc;
     await fetch(urlForecast)
       .then((response) => {
@@ -45,14 +41,12 @@ const WeatherPanel = () => {
         return response.json();
       })
       .then((forecastData) => {
-        console.log(forecastData);
         setForecast(forecastData);
 
         setLoading(false);
         setShow(true);
       })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
         setShow(false);
       });
